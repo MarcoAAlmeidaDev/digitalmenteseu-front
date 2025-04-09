@@ -1,0 +1,9 @@
+<!-- icon-idea.svg - Para colocar na pasta /public/images/icon-idea.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none" stroke="#0761ff" stroke-width="2">
+  <path d="M60 15C40 15 25 30 25 50C25 65 35 75 45 85V95H75V85C85 75 95 65 95 50C95 30 80 15 60 15Z" />
+  <rect x="45" y="100" width="30" height="10" rx="2" fill="#0761ff" stroke="none" />
+  <path d="M50 95V85" />
+  <path d="M60 95V85" />
+  <path d="M70 95V85" />
+  <circle cx="60" cy="50" r="15" stroke="#0761ff" stroke-dasharray="4" />
+</svg>

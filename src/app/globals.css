@@ -1,0 +1,731 @@
+@import "tailwindcss";
+
+
+/* Animação para o card que sai pela esquerda */
+@keyframes slideExitLeft {
+  0% {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+  20% {
+    transform: translateX(-20%) scale(0.97);
+    opacity: 0.9;
+  }
+  60% {
+    transform: translateX(-80%) scale(0.9);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(-130%) scale(0.85);
+    opacity: 0;
+  }
+}
+
+/* Animação para mover o card do meio para a esquerda */
+@keyframes slideToLeft {
+  0% {
+    transform: translateX(0) scale(1.05);
+    z-index: 10;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  }
+  20% {
+    transform: translateX(-20%) scale(1.03);
+    z-index: 7;
+  }
+  60% {
+    transform: translateX(-70%) scale(1.01);
+    z-index: 5;
+  }
+  100% {
+    transform: translateX(-100%) scale(1);
+    z-index: 5;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Animação para mover o card da direita para o centro */
+@keyframes slideToCenter {
+  0% {
+    transform: translateX(100%) scale(0.95); /* Começa de fora da tela */
+    opacity: 0.7;
+    z-index: 5;
+  }
+  20% {
+    transform: translateX(60%) scale(0.97);
+    opacity: 0.8;
+    z-index: 6;
+  }
+  60% {
+    transform: translateX(-20%) scale(1.03);
+    opacity: 1;
+    z-index: 9;
+  }
+  100% {
+    transform: translateX(-100%) scale(1.05);
+    opacity: 1;
+    z-index: 10;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Animação para o card que sai pela direita */
+@keyframes slideExitRight {
+  0% {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+  20% {
+    transform: translateX(20%) scale(0.97);
+    opacity: 0.9;
+  }
+  60% {
+    transform: translateX(80%) scale(0.9);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(130%) scale(0.85);
+    opacity: 0;
+  }
+}
+
+/* Animação para mover o card do meio para a direita */
+@keyframes slideToRight {
+  0% {
+    transform: translateX(0) scale(1.05);
+    z-index: 10;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  }
+  20% {
+    transform: translateX(20%) scale(1.03);
+    z-index: 7;
+  }
+  60% {
+    transform: translateX(70%) scale(1.01);
+    z-index: 5;
+  }
+  100% {
+    transform: translateX(100%) scale(1);
+    z-index: 5;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Aplicar as animações aos elementos */
+.animate-slide-exit-left {
+  animation: slideExitLeft 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+.animate-slide-to-left {
+  animation: slideToLeft 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+.animate-slide-to-center {
+  animation: slideToCenter 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+.animate-slide-exit-right {
+  animation: slideExitRight 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+.animate-slide-to-right {
+  animation: slideToRight 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+/* Duração da transição para todos os cards */
+.duration-800 {
+  transition-duration: 800ms;
+}
+
+/* Curva de aceleração suave */
+.ease-in-out {
+  transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* Modificador para o card do meio */
+@media (min-width: 768px) {
+  .md\:scale-105 {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+}
+
+/* Desabilitar botões durante a animação */
+button[disabled] {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Animação para o texto digitado */
+.typed-cursor {
+  opacity: 1;
+  animation: typedjsBlink 0.7s infinite;
+}
+
+@keyframes typedjsBlink {
+  50% {
+    opacity: 0.0;
+  }
+}
+
+/* Efeito de hover para cards de produtos */
+@media (hover: hover) {
+  .bg-white.rounded-xl:hover:not(.animate-slide-exit-left):not(.animate-slide-to-left):not(.animate-slide-to-center):not(.animate-slide-exit-right):not(.animate-slide-to-right) {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s ease;
+  }
+  
+  /* Manter o efeito escala para o card do meio mesmo com hover */
+  .md\:scale-105:hover:not(.animate-slide-exit-left):not(.animate-slide-to-left):not(.animate-slide-to-center):not(.animate-slide-exit-right):not(.animate-slide-to-right) {
+    transform: translateY(-5px) scale(1.05);
+  }
+}
+
+/* Ajustes responsivos */
+@media (max-width: 767px) {
+  .animate-slide-exit-left,
+  .animate-slide-to-left,
+  .animate-slide-to-center,
+  .animate-slide-exit-right,
+  .animate-slide-to-right {
+    animation: none; /* Desativar animação em dispositivos muito pequenos */
+  }
+}
+
+/* Animações simplificadas para a seção de crônicas */
+@keyframes slideLeft {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes enterFromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes enterFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Classes para aplicar as animações */
+.animate-slide-left {
+  animation: slideLeft 0.5s ease-out forwards;
+}
+
+.animate-slide-right {
+  animation: slideRight 0.5s ease-out forwards;
+}
+
+.animate-enter-right {
+  animation: enterFromRight 0.5s ease-out forwards;
+}
+
+.animate-enter-left {
+  animation: enterFromLeft 0.5s ease-out forwards;
+}
+
+/* Estilo para o truncamento de texto */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Estilos específicos para cards de crônicas */
+.cronica-card {
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cronica-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.cronica-container {
+  transition: transform 0.5s ease;
+}
+
+.cronica-title {
+  color: #1a202c;
+  transition: color 0.2s ease;
+}
+
+.cronica-card:hover .cronica-title {
+  color: #1333f7;
+}
+
+.cronica-excerpt {
+  color: #4a5568;
+  line-height: 1.6;
+}
+
+.cronica-author-img {
+  border: 2px solid white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cronica-button {
+  background-color: #1333f7;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.cronica-button:hover {
+  background-color: #0f29c6;
+  transform: scale(1.05);
+}
+
+
+/* Adicione isso ao seu arquivo globals.css */
+
+/* Espaçador do header que só aparece quando o header está fixo */
+@media (max-width: 768px) {
+  .header-spacer {
+    display: none;
+  }
+  
+  header.fixed + .header-spacer {
+    display: block;
+    height: 65px; /* Altura do header mobile + barra de busca */
+  }
+}
+
+@media (min-width: 769px) {
+  .header-spacer {
+    display: none;
+  }
+  
+  header.fixed + .header-spacer {
+    display: block;
+    height: 72px; /* Altura do header desktop */
+  }
+}
+
+
+/* Adicionar estas definições de animação ao final do arquivo globals.css */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideRight {
+  from { transform: translateX(-20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideLeft {
+  from { transform: translateX(20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.animate-slideDown {
+  animation: slideDown 0.5s ease-out;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.5s ease-out;
+}
+
+.animate-slideRight {
+  animation: slideRight 0.5s ease-out;
+}
+
+.animate-slideLeft {
+  animation: slideLeft 0.5s ease-out;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.5s ease-out;
+}
+
+.animate-bounce {
+  animation: bounce 2s infinite;
+}
+
+.delay-0 {
+  animation-delay: 0s;
+}
+
+.delay-150 {
+  animation-delay: 0.15s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+
+/* Estilos para ocultar a barra de rolagem e manter a funcionalidade */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Animações para o player de vídeo */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(10px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.3s ease-out;
+}
+
+/* Estilos adicionais para o estilo temático escuro do curso */
+.bg-course-dark {
+  background-color: #13111b;
+}
+
+.bg-course-card {
+  background-color: #1c1b29;
+}
+
+.bg-course-hover:hover {
+  background-color: #232230;
+}
+
+
+/* Estilos específicos para o menu lateral e cursos */
+.sidebar-transition {
+  transition: width 0.3s ease-in-out;
+}
+
+/* Remover estilização padrão de botões e inputs em áreas específicas */
+.curso-button {
+  cursor: pointer;
+}
+
+/* Animação para o menu lateral */
+@keyframes slideIn {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes slideOut {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+.sidebar-enter {
+  animation: slideIn 0.3s forwards;
+}
+
+.sidebar-exit {
+  animation: slideOut 0.3s forwards;
+}
+
+/* Ocultar footer nas páginas de curso */
+.cursos-page .footer {
+  display: none;
+}
+
+/* Cores mais suaves */
+.text-blue-soft {
+  color: #64b5f6;
+}
+
+.bg-blue-soft {
+  background-color: #4285f4;
+}
+
+.hover\:bg-blue-soft:hover {
+  background-color: #5a95f5;
+}
+
+/* Estilo para os botões usados em cursos */
+button.curso-btn {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button.curso-btn:hover {
+  transform: translateY(-2px);
+}
+
+button.curso-btn:active {
+  transform: translateY(0);
+}
+
+/* Estilo para sombras suaves */
+.shadow-blue {
+  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.2);
+}
+
+/* Estilo para texto com gradiente */
+.text-gradient {
+  background: linear-gradient(45deg, #64b5f6, #8c9eff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Regras para evitar duplicação de sidebars */
+.sidebar-duplicate-prevention {
+  display: none !important;
+}
+
+body.curso-detail-layout-active .main-sidebar:not(:first-child),
+body.meus-cursos-layout-active .main-sidebar:not(:first-child) {
+  display: none !important;
+}
+
+/* Estilos para páginas de área autenticada */
+body.auth-area-page header,
+body.auth-area-page footer {
+  display: none !important;
+}
+
+/* Removendo o padding top do main para páginas autenticadas */
+body.auth-area-page main {
+  padding-top: 0 !important;
+}
+
+/* Ajuste para melhorar a exibição de conteúdo próximo à sidebar */
+@media (min-width: 1024px) {
+  .curso-content-grid {
+    padding-left: 0;
+    margin-left: 0;
+  }
+}
+
+/* Estilo para scrollbar customizada na sidebar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Estilo para esconder a barra de rolagem horizontal */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Melhorias para o grid de cursos */
+@media (max-width: 640px) {
+  .curso-grid {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+/* Configuração 3D para o carrossel */
+.product-swiper-container {
+  position: relative;
+  padding: 0 10px;
+  margin: 0 auto;
+  max-width: 1200px;
+  perspective: 1000px; /* Adiciona perspectiva para o efeito 3D */
+}
+
+.swiper {
+  width: 100%;
+  padding: 70px 0;
+  overflow: visible;
+}
+
+.swiper-slide {
+  height: auto;
+  transition: all 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  opacity: 0.7;
+  transform: rotateY(10deg) scale(0.9);
+  transform-style: preserve-3d;
+}
+
+/* Slide anterior fica inclinado para a esquerda */
+.swiper-slide-prev {
+  transform: rotateY(10deg) scale(0.85);
+  z-index: 1;
+}
+
+/* Slide ativo fica reto e em destaque */
+.swiper-slide-active {
+  transform: rotateY(0deg) scale(1.05);
+  z-index: 2;
+  opacity: 1;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Slide próximo fica inclinado para a direita */
+.swiper-slide-next {
+  transform: rotateY(-10deg) scale(0.85);
+  z-index: 1;
+}
+
+/* Efeito de sombra para o card ativo */
+.swiper-slide-active .product-card {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Aumenta a profundidade para os cards */
+.product-card {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Efeito hover no card do produto */
+.product-card:hover {
+  transform: translateY(-5px) scale(1.02);
+}
+
+.product-image-container {
+  overflow: hidden;
+  transform-style: preserve-3d;
+}
+
+.product-image-container img {
+  max-height: 220px;
+  transition: transform 0.6s ease-in-out;
+}
+
+.swiper-slide-active .product-image-container img {
+  transform: translateZ(20px); /* Dá um leve efeito de pop-out na imagem do slide ativo */
+}
+
+/* Botões de navegação customizados */
+.custom-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-nav-btn::after {
+  font-size: 18px !important;
+  font-weight: bold;
+  color: #333;
+}
+
+.custom-nav-btn:hover {
+  background-color: #f8f9fa;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Paginação customizada */
+.custom-pagination {
+  bottom: -30px !important;
+}
+
+.custom-pagination .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background-color: #ccc;
+  opacity: 0.7;
+  transition: all 0.3s;
+}
+
+.custom-pagination .swiper-pagination-bullet-active {
+  background-color: #0d6efd;
+  width: 12px;
+  height: 12px;
+  opacity: 1;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slideUp {
+  animation: slideUp 0.3s ease-out forwards;
+}

@@ -1,0 +1,17 @@
+<!-- icon-digital.svg - Para colocar na pasta /public/images/icon-digital.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none" stroke="#0761ff" stroke-width="2">
+  <circle cx="60" cy="60" r="40" />
+  <path d="M60 20V10" />
+  <path d="M60 110V100" />
+  <path d="M20 60H10" />
+  <path d="M110 60H100" />
+  <path d="M85 35L95 25" />
+  <path d="M25 95L35 85" />
+  <path d="M35 35L25 25" />
+  <path d="M95 95L85 85" />
+  <rect x="45" y="45" width="30" height="30" stroke-dasharray="4" />
+  <rect x="50" y="50" width="5" height="5" fill="#0761ff" />
+  <rect x="65" y="50" width="5" height="5" fill="#0761ff" />
+  <rect x="50" y="65" width="5" height="5" fill="#0761ff" />
+  <rect x="65" y="65" width="5" height="5" fill="#0761ff" />
+</svg>
